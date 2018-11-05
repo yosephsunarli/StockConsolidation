@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context="com.beone_solution.stockconsolidation.DetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:id="@+id/toolbar_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:elevation="2dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:textColor="@android:color/white"
+                    style="@style/Base.TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
+            </android.support.v7.widget.Toolbar>
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/layout_loading"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/mSwipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!--Item Information-->
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--Image and information-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:background="@color/colorGrey">
+
+                <!--Image-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/dtl_image"
+                        android:layout_width="120dp"
+                        android:layout_height="180dp"
+                        android:padding="12dp"
+                        android:src="@drawable/img_dummy"
+                        android:scaleType="fitCenter"/>
+
+                </LinearLayout>
+
+                <!--Item Information Label-->
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="6dp">
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="invisible"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/artNo"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/artName"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/collection"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/weeks"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sellthru"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/retailPrice"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disc"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/from"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/to"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+                <!--Item Information Content-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="invisible"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_artno"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_artname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_collection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_weeks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_sellthru"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_retailprice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_disc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_from"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoRegularTextView
+                        android:id="@+id/dtl_to"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:ellipsize="end"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="invisible"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/vertical_separator"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:src="@drawable/underline"
+                android:tint="#C0C0C0"
+                android:background="@color/colorGrey"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="2"
+                        android:text="@string/beginning"
+                        android:textAlignment="center"
+                        android:background="@drawable/background"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="2"
+                        android:text="@string/ending"
+                        android:textAlignment="center"
+                        android:background="@drawable/background"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorPrimary">
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/size"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/from"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/to"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/suggestion"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/from"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                    <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|center"
+                        android:layout_weight="1"
+                        android:text="@string/to"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWhite"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/detailconsolidationrecyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/background"
+                app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorPrimary">
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:text="@string/total"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:id="@+id/beg_from_total"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:id="@+id/beg_to_total"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:id="@+id/suggest_total"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:id="@+id/end_from_total"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+                <com.beone_solution.stockconsolidation.widget.RobotoBoldTextView
+                    android:id="@+id/end_to_total"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center"
+                    android:layout_weight="1"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWhite"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/vertical_separator1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:src="@drawable/underline"
+                android:tint="#C0C0C0"
+                android:background="@color/colorGrey"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="bottom">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btApprove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:text="@string/approve"
+            android:textColor="@color/colorWhite"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

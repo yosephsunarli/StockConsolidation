@@ -1,0 +1,30 @@
+<resources>
+    <string-array name="query_suggestions">
+        <item>Android</item>
+        <item>Beta</item>
+        <item>Cupcake</item>
+        <item>Donut</item>
+        <item>Eclair</item>
+        <item>Froyo</item>
+        <item>Gingerbread</item>
+        <item>Honeycomb</item>
+        <item>Ice Cream Sandwich</item>
+        <item>Jellybean</item>
+        <item>Kitkat</item>
+        <item>Lollipop</item>
+        <item>Marshmallow</item>
+        <item>Nougat</item>
+        <item>Oreo</item>
+        <item>Peanut</item>
+        <item>Quince</item>
+        <item>Red Velvet</item>
+        <item>Sundae</item>
+        <item>Toblerone</item>
+        <item>Upside Down</item>
+        <item>Vanilla</item>
+        <item>Waffle</item>
+        <item>Xmas</item>
+        <item>Yogurt</item>
+        <item>Zerobar</item>
+    </string-array>
+</resources>
